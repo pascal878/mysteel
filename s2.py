@@ -18,12 +18,6 @@ print(r.encoding)
 r = r.text
 r.encode('iso-8859-1').decode('iso-8859-1')
 
-import chardet
-import urllib
-
-raw_data = urllib.urlopen('https://chongqing.mysteel.com/').read()
-print(chardet.detect(raw_data))
-
 from lxml import etree
 
 page = etree.HTML(r)

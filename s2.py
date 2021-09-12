@@ -14,16 +14,15 @@ session = requests.Session()
 session.post(url, headers=headers)
 
 r = session.get('https://chongqing.mysteel.com/')
-print(r.encoding)
-r = r.text
-r.encode('gb2312').decode('iso-8859-1')
+r.encoding = 'gbk'
+print(r.text)
 
 from lxml import etree
 
-page = etree.HTML(r)
-t = page.xpath('//h2/text()')
-t = str(t)
-print(t)
+# page = etree.HTML(r)
+# t = page.xpath('//h2/text()')
+# t = str(t)
+# print(t)
 # f = open('./mysteel2.html', 'r', encoding='utf-8')
 # r = f.read()
 # print(r)

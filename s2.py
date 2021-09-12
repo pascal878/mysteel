@@ -16,7 +16,7 @@ session.post(url, headers=headers)
 r = session.get('https://chongqing.mysteel.com/')
 print(r.encoding)
 r = r.text
-r.encode('iso-8859-1').decode('iso-8859-1')
+r.encode('gb2312').decode('iso-8859-1')
 
 from lxml import etree
 

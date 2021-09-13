@@ -13,7 +13,7 @@ url = 'https://passport.mysteel.com/loginJson.jsp?callback=loginJsn&my_username=
 session = requests.Session()
 session.post(url, headers=headers)
 
-r = session.get('https://jiancai.mysteel.com/m/21090915/FE60DE688CB0E86D.html')
+r = session.get('https://jiancai.mysteel.com/m/21091010/0FA19C867D4180DA.html')
 r = r.text
 print(r)
 

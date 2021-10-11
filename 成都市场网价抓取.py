@@ -12,7 +12,7 @@ url = 'https://passport.mysteel.com/loginJson.jsp?callback=loginJsn&my_username=
       '.mysteel.com&my_rememberStatus=true&vcode=&_=1631176869695 '
 session = requests.Session()
 session.post(url, headers=headers)
-r = session.get('https://chongqing.mysteel.com/')
+r = session.get('https://chengdu.mysteel.com/')
 r.encoding = 'gbk'
 r = r.text
 # print(r.text)
@@ -24,7 +24,7 @@ from lxml import etree
 
 page = etree.HTML(r)
 t = page.xpath('/html/body/div[8]/div[2]/div[4]/div[1]/div/h2/text()')
-s = page.xpath('//a[contains(@title,"重庆市场建筑钢材价格行情")]/@href')
+s = page.xpath('//a[contains(@title,"成都市场建筑钢材价格行情")]/@href')
 s = list(s)
 print(t)
 print(s)
@@ -70,4 +70,4 @@ for j in range(2, row):
         k = k + 1
 
 print(t)
-f.save('./' + t + '.xlsx')
+f.save('./成都市场网价/' + t + '.xlsx')

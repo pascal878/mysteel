@@ -1,21 +1,24 @@
+import time
+
 import requests
 
 headers = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+    #    'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+    'User-Agent': 'User-Agent:Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0;'
 }
 data = {
     'my_username': 'ldsm3392',
-    'my_password': 'ld65413392',
+    'my_password': 'ld654133922',
 }
 url = 'https://passport.mysteel.com/loginJson.jsp?callback=loginJsn&my_username=ldsm3392&my_password' \
       '=c0a847d46f58d3a75c77e828be1e2c111&callbackJsonp=loginJsn&jumpPage=https%3A%2F%2Fwww.mysteel.com%2F&site=www' \
       '.mysteel.com&my_rememberStatus=true&vcode=&_=1631176869695 '
 session = requests.Session()
 session.post(url, headers=headers)
-r = session.get('https://chongqing.mysteel.com/')
+#r = session.get('https://chongqing.mysteel.com/')
+r = session.get('https://jiancai.mysteel.com/market/pa228aa010101a0a010601aaaa1.html')
 r.encoding = 'gbk'
 r = r.text
-# print(r.text)
 
 from lxml import etree
 
@@ -29,7 +32,7 @@ s = list(s)
 print(t)
 print(s)
 date = input('请输入日期(yymmdd):')
-date = str(date) + '10'
+date = str(date)
 print(date)
 
 for i in range(0, len(s)):
@@ -40,7 +43,6 @@ for i in range(0, len(s)):
         print(url1)
         break
 
-url1 = 'https:' + url1
 r = session.get(url1)
 r = r.text
 
@@ -49,10 +51,10 @@ t = page.xpath('//h1/text()')
 t = str(t)
 t = t[2:len(t) - 2]
 print(t)
-l1 = page.xpath('//tr[contains(@id,"ctr")]/td/text()')
+l1 = page.xpath('//tr[contains(@id,"ctr1")]/td/text()')
 l = [elem.strip() for elem in l1]
-for i in range(0, len(l), 8):
-    print(l[i:i + 8])
+for i in range(0, len(l), 10):
+    print(l[i:i + 10])
 
 import xlwt
 
